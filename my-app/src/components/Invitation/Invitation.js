@@ -13,7 +13,7 @@ export default function Invitation(props) {
                 <p><b>Hi,</b> <span style={{ color: textcolor, fontWeight: 650 }}>jaGdish</span></p>
                 <p>I am having a birthday party next Friday at my Home .
                     Would you like to come ? It will be fun . Lots of people from my school are coming .
-                    you know some of them - {peoples.map((people, index) => <span style={{ color: textcolor, fontWeight: 650 }} key={index}>{people}{' '}</span>)}.
+                    you know some of them - {peoples.map((people, index) => <span style={{ color: textcolor, fontWeight: 650 }} key={index}>{people}{', '}</span>)}.
                     My house is behind our school , near <span style={{ color: textcolor, fontWeight: 650 }}>{props.invitationData.address}</span> .
                     I hope you will come and see you soon .
                 </p>
