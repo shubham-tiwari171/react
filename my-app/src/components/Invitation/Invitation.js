@@ -2,7 +2,6 @@ import './Invitation.css'
 export default function Invitation(props) {
     let peoples = props.invitationData.peoples;
     let textcolor = props.invitationData.color;
-    //console.log(color);
     return (
         <>
 
