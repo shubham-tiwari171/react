@@ -2,6 +2,10 @@ import './Invitation.css'
 export default function Invitation(props) {
     let peoples = props.invitationData.peoples;
     let textcolor = props.invitationData.color;
+    //let arr = []
+    // peoples.forEach((people, index) => arr.push(<span style={{ color: textcolor, fontWeight: 650 }} key={index}>{people}{', '}</span>))
+    // console.log(arr)
+    //{arr} this will also work fine but using for loop we have to store in the result in array then use it in code
     return (
         <>
 
@@ -24,3 +28,4 @@ export default function Invitation(props) {
         </>
     )
 }
+// {peoples.map((people, index) => <span style={{ color: textcolor, fontWeight: 650 }} key={index}>{people}{', '}</span>)}
