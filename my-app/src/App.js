@@ -16,8 +16,6 @@ function App() {
     <div className="center">
       <Invitation invitationData={invitation} />
     </div>
-
-
   );
 }
 
