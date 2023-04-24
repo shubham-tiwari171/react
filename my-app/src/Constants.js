@@ -9,7 +9,13 @@ export const ProfileCardData = [
         designation: 'Front end developer',
         company: "@Google",
         imagesrc: 4,
-        bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis cum, nihil at dignissimos ab aut officia odit quisquam illum minus cumque a nobis numquam quae blanditiis vero voluptatem accusamus perferendis!"
+        bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis cum, nihil at dignissimos ab aut officia odit quisquam illum minus cumque a nobis numquam quae blanditiis vero voluptatem accusamus perferendis!",
+        iconsClass: {
+            fb: "fa-brands fa-facebook fa-2xl",
+            insta: "fa-brands fa-instagram fa-2xl",
+            wp: "fa-brands fa-whatsapp fa-2xl",
+            github: "fa-brands fa-github fa-2xl"
+        }
     },
     {
         id: 2,
@@ -21,7 +27,13 @@ export const ProfileCardData = [
         designation: 'Back end developer',
         company: "@Facebook",
         imagesrc: 3,
-        bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis cum, nihil at dignissimos ab aut officia odit quisquam illum minus cumque a nobis numquam quae blanditiis vero voluptatem accusamus perferendis!"
+        bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis cum, nihil at dignissimos ab aut officia odit quisquam illum minus cumque a nobis numquam quae blanditiis vero voluptatem accusamus perferendis!",
+        iconsClass: {
+            fb: "fa-brands fa-facebook fa-2xl",
+            insta: "fa-brands fa-instagram fa-2xl",
+            wp: "fa-brands fa-whatsapp fa-2xl",
+            github: "fa-brands fa-github fa-2xl"
+        }
     },
     {
         id: 3,
@@ -33,7 +45,14 @@ export const ProfileCardData = [
         designation: 'Front end developer',
         company: "@Amazon",
         imagesrc: 2,
-        bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis cum, nihil at dignissimos ab aut officia odit quisquam illum minus cumque a nobis numquam quae blanditiis vero voluptatem accusamus perferendis!"
+        bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis cum, nihil at dignissimos ab aut officia odit quisquam illum minus cumque a nobis numquam quae blanditiis vero voluptatem accusamus perferendis!",
+        iconsClass: {
+            fb: "fa-brands fa-facebook fa-2xl",
+            insta: "fa-brands fa-instagram fa-2xl",
+            wp: "fa-brands fa-whatsapp fa-2xl",
+            github: "fa-brands fa-github fa-2xl"
+        }
+
     },
     {
         id: 4,
@@ -45,6 +64,12 @@ export const ProfileCardData = [
         designation: 'Fullstack developer',
         company: "@Flipkart",
         imagesrc: 1,
-        bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis cum, nihil at dignissimos ab aut officia odit quisquam illum minus cumque a nobis numquam quae blanditiis vero voluptatem accusamus perferendis!"
+        bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis cum, nihil at dignissimos ab aut officia odit quisquam illum minus cumque a nobis numquam quae blanditiis vero voluptatem accusamus perferendis!",
+        iconsClass: {
+            fb: "fa-brands fa-facebook fa-2xl",
+            insta: "fa-brands fa-instagram fa-2xl",
+            wp: "fa-brands fa-whatsapp fa-2xl",
+            github: "fa-brands fa-github fa-2xl"
+        }
     },
 ]

@@ -22,10 +22,10 @@ function Profilecard(props) {
                                         <p>{item.bio}</p>
                                         <button id={item.id} type="button" className="btn btn-secondary" onClick={handleSeeMoreClick}>Show More</button>
                                         <div className="follow-icon">
-                                            <div className="icon"><i className="fa-brands fa-facebook fa-2xl"></i></div>
-                                            <div className="icon"><i className="fa-brands fa-instagram fa-2xl"></i></div>
-                                            <div className="icon"><i className="fa-brands fa-whatsapp fa-2xl"></i></div>
-                                            <div className="icon"><i className="fa-brands fa-github fa-2xl"></i></div>
+                                            <div className="icon"><i className={item.iconsClass.fb}></i></div>
+                                            <div className="icon"><i className={item.iconsClass.insta}></i></div>
+                                            <div className="icon"><i className={item.iconsClass.wp}></i></div>
+                                            <div className="icon"><i className={item.iconsClass.github}></i></div>
                                         </div>
                                     </div>
                                 </div>
