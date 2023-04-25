@@ -1,0 +1,1 @@
+export const data = ["Component based Architechture", "Virtual Dom for efficient updates", "Rich ecosystem and community", "Cross platform development", "Strongly community support"]
