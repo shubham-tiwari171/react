@@ -1,1 +1,9 @@
-export const data = ["Component based Architechture", "Virtual Dom for efficient updates", "Rich ecosystem and community", "Cross platform development", "Strongly community support"]
+export const data = {
+    name: "JaGdish ",
+    subject: "Birthday party Invitation",
+    email: "jaGdish@gmail.com",
+    partyType: "birthday party",
+    peoples: ["Ritu", "Saurabh", "Kartik"],
+    address: "Green field Avenue",
+    color: "red"
+}
