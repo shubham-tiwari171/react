@@ -1,4 +1,4 @@
-import './Counter.css';
+import './Nameupdater.css';
 import { useState } from 'react'
 export default function Nameupdater() {
     const [name, setName] = useState("");
@@ -15,7 +15,7 @@ export default function Nameupdater() {
         <>
             <div className="alignments">
                 <div className="content">
-                    <div className="gap"><h1>Name </h1></div>
+                    <div className="gap"><h2>Name updater</h2></div>
                     <div className="d-flex justify-content-between">
                         <div>
                             <input type="text" className="form-control" value={name} placeholder="Enter your text" onChange={handleOnChange} />
