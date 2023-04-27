@@ -35,7 +35,7 @@ export default function Luckynumbergame() {
         <>
             <div className="alignments">
                 <div className="content">
-                    <div className="gap"><h2>Lucky number game</h2></div>
+                    <div className="gap"><h3>Lucky number game</h3></div>
                     <div className="d-flex justify-content-between">
                         <div>
                             <input type="text" value={guessNumber} className="form-control" placeholder="Enter Number to guess" onChange={handleOnChange} />
