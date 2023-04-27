@@ -18,8 +18,9 @@ export default function Luckynumbergame() {
             return
         }
         if (randomNumber === Number(guessNumber)) {
-            alert("Congratulations you won");
             setCount(count + 1);
+            alert(`Congratulations you guessed the right number in ${count} attempts`);
+
         }
         else if (Number(guessNumber) > randomNumber) {
             alert("You guessed a bigger number");
