@@ -7,28 +7,29 @@ export default function Luckynumbergame() {
     const [count, setCount] = useState(0);
 
     function handleOnChange(event) {
-        event.preventDefault();
+        //event.preventDefault();
         setguessNumber(event.target.value);
     }
 
     function handleClick() {
+        setCount(count + 1);
         if (guessNumber < 0 || guessNumber > 10) {
             alert("PLease enter no between 0 to 10");
             setguessNumber('')
             return
         }
         if (randomNumber === Number(guessNumber)) {
-            setCount(count + 1);
+            setrandomNumber(Math.floor(Math.random() * 10) + 1);
             alert(`Congratulations you guessed the right number in ${count} attempts`);
-
+            setCount(0);
         }
         else if (Number(guessNumber) > randomNumber) {
             alert("You guessed a bigger number");
-            setCount(count + 1);
+            //setCount(count + 1);
         }
         else {
             alert("You guessed a smaller number");
-            setCount(count + 1);
+            //setCount(count + 1);
         }
         setguessNumber('')
     }
@@ -43,7 +44,8 @@ export default function Luckynumbergame() {
                         </div>
                         <div><button className="btn btn-primary" onClick={handleClick}>Submit</button ></div>
                     </div>
-                    <div className="gap"><h4>No of attemptes: {count}</h4></div>
+                    {/* <div className="gap"><h4>No of attemptes: {count}</h4></div> */}
+                    <div className="gap"><h4>Random no: {randomNumber}</h4></div>
                 </div>
             </div >
         </>
