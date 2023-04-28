@@ -5,10 +5,11 @@ export default function Luckynumbergame() {
     const [randomNumber, setrandomNumber] = useState(Math.floor(Math.random() * 10) + 1);
     const [guessNumber, setguessNumber] = useState("");
     const [count, setCount] = useState(0);
-
+    let attempts = 0
     function handleOnChange(event) {
         //event.preventDefault();
         setguessNumber(event.target.value);
+        // setCount(count + 1);
     }
 
     function handleClick() {
@@ -20,7 +21,8 @@ export default function Luckynumbergame() {
         }
         if (randomNumber === Number(guessNumber)) {
             setrandomNumber(Math.floor(Math.random() * 10) + 1);
-            alert(`Congratulations you guessed the right number in ${count} attempts`);
+            attempts = count === 0 ? 1 : count;
+            alert(`Congratulations! You guessed the right number in ${attempts} attempt.`);
             setCount(0);
         }
         else if (Number(guessNumber) > randomNumber) {
