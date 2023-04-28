@@ -44,7 +44,7 @@ export default function Luckynumbergame() {
                         <div><button className="btn btn-primary" onClick={handleClick}>Submit</button ></div>
                     </div>
                     {/* <div className="gap"><h4>No of attemptes: {count}</h4></div> */}
-                    <div className="gap"><h4>Random no: {randomNumber}</h4></div>
+                    {/* <div className="gap"><h4>Random no: {randomNumber}</h4></div> */}
                 </div>
             </div >
         </>
