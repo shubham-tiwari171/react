@@ -6,8 +6,8 @@ export default function Luckynumbergame() {
     const [guessNumber, setguessNumber] = useState("");
     const [count, setCount] = useState(0);
     let attempts = 0
+
     function handleOnChange(event) {
-        //event.preventDefault();
         setguessNumber(event.target.value);
     }
 
