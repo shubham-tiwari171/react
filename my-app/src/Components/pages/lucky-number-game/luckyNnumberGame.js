@@ -9,7 +9,6 @@ export default function Luckynumbergame() {
     function handleOnChange(event) {
         //event.preventDefault();
         setguessNumber(event.target.value);
-        // setCount(count + 1);
     }
 
     function handleClick() {
@@ -27,11 +26,9 @@ export default function Luckynumbergame() {
         }
         else if (Number(guessNumber) > randomNumber) {
             alert("You guessed a bigger number");
-            //setCount(count + 1);
         }
         else {
             alert("You guessed a smaller number");
-            //setCount(count + 1);
         }
         setguessNumber('')
     }
