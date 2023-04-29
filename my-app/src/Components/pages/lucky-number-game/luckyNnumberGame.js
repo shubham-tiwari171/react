@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './luckyNumberGame.css'
 
-export default function Luckynumbergame() {
+export default function Luckynumbergame(props) {
+    // console.log(props)
     const [randomNumber, setrandomNumber] = useState(Math.floor(Math.random() * 10) + 1);
     const [guessNumber, setguessNumber] = useState("");
     const [count, setCount] = useState(0);
@@ -11,13 +12,21 @@ export default function Luckynumbergame() {
         setguessNumber(event.target.value);
     }
 
-    function handleClick() {
+    function handleClick(e) {
+        console.log(typeof guessNumber);
         setCount(count + 1);
-        if (guessNumber < 0 || guessNumber > 10) {
+
+        if ((guessNumber) === '' || guessNumber === null || guessNumber === undefined) {
+            alert("PLease fill some number in the input box");
+            return
+        }
+
+        if (Number(guessNumber) < 0 || Number(guessNumber) > 10) {
             alert("PLease enter no between 0 to 10");
             setguessNumber('')
             return
         }
+
         if (randomNumber === Number(guessNumber)) {
             setrandomNumber(Math.floor(Math.random() * 10) + 1);
             attempts = count === 0 ? 1 : count;
@@ -41,7 +50,7 @@ export default function Luckynumbergame() {
                         <div>
                             <input type="text" value={guessNumber} className="form-control" placeholder="Enter Number to guess" onChange={handleOnChange} />
                         </div>
-                        <div><button className="btn btn-primary" onClick={handleClick}>Match Number</button ></div>
+                        <div><button id="sadhakjdkad" className="btn btn-primary" onClick={handleClick}>Match Number</button ></div>
                     </div>
                     {/* <div className="gap"><h4>No of attemptes: {count}</h4></div> */}
                     {/* <div className="gap"><h4>Random no: {randomNumber}</h4></div> */}
