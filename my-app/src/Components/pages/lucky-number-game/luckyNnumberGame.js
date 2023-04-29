@@ -16,7 +16,14 @@ export default function Luckynumbergame(props) {
         console.log(typeof guessNumber);
         setCount(count + 1);
 
+        if ((typeof guessNumber) === "string") {
+            alert("PLease enter number in the input box ex:-1,2,3,4");
+            setguessNumber('')
+            return
+        }
+
         if ((guessNumber) === '' || guessNumber === null || guessNumber === undefined) {
+            setguessNumber('')
             alert("PLease fill some number in the input box");
             return
         }
