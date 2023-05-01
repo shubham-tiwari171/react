@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Luckynumbergame from './components/pages/lucky-number-game/luckyNnumberGame';
+
+import ChooseFile from './components/pages/chooseFile/choose-file';
 function App() {
 
   return (
-    <Luckynumbergame />
+    <ChooseFile />
   );
 }
 
