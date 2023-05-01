@@ -1,7 +1,7 @@
 import './Changeimage.css';
 import { useEffect, useRef, useState } from 'react';
 export default function ChangeImage() {
-    const imageRef = useRef(null);
+    const imageRef = useRef('');
 
     useEffect(() => {
         let imageUrl = Math.floor(Math.random() * 5) + 1;
