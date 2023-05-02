@@ -1,0 +1,18 @@
+.alignments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 5px solid red;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.image-center {
+  width: 500px;
+  height: 500px;
+}
