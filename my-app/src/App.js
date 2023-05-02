@@ -1,9 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-import { DogFetcher } from './components/section/Dogfectchapi/Dogfecth';
+import Profilecard from './components/section/Profilecard/Profilecard';
+import { useEffect, useState } from "react";
+
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+
+  }, []);
+  async function fetchData() {
+    try {
+      const response = await fetch("https://reqres.in/api/users/");
+      const data = await response.json();
+      setData(data);
+    } catch (error) { }
+  }
   return (
-    <DogFetcher />
+    <Profilecard profileInfo={{ data: data, onclick: fetchData }} />
+    // <></>
   );
 }
 
