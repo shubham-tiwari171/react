@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Luckynumbergame from './components/pages/lucky-number-game/luckyNnumberGame';
+import Otpgenerator from './components/pages/Otpgenerator/otpgenerator';
 function App() {
 
   return (
-    <Luckynumbergame />
+    <Otpgenerator />
   );
 }
 
