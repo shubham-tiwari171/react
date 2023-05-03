@@ -68,7 +68,7 @@ export default function Otpgenerator(props) {
         <>
             <div className="alignments">
                 <div className="content">
-                    <div className="gap"><h3>Otp generator</h3></div>
+                    <div className="d-flex justify-content-center p-2"><h3>Otp Generator</h3></div>
                     <div className="d-flex justify-content-between">
                         <div>
                             <input type="text" value={number} className="form-control" placeholder="Enter Number to guess" onChange={handleOnChange} />
