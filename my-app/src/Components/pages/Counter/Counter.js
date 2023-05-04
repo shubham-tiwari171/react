@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function Countdown() {
     const [timeLeft, setTimeLeft] = useState(120);
@@ -9,12 +9,20 @@ function Countdown() {
         }
     }, [timeLeft])
 
+    function start() {
+        setTimeLeft(35990);
+    }
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
+    let hour = Math.floor(minutes / 60)
     return (
-        <div>
-            Next otp send after: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-        </div>
+        <>
+            <div>
+                Time{hour}: {(minutes = minutes >= 60 ? 0 : minutes)}:
+                {seconds < 10 ? `0${seconds}` : seconds}
+            </div>
+            <button onClick={start}>Start</button>
+        </>
     );
 }
 

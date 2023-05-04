@@ -45,7 +45,10 @@ export default function Otpgenerator() {
             alert("otp send successfully");
             setNumber('')
         } catch (error) {
-            alert("please wait for 2 minutes then try again or try some different number for otp");
+            if (mobileNumber.toString().length < 10)
+                alert("invalid mobile number");
+            if (mobileNumber.toString().length > 10)
+                alert("invalid mobile number");
         }
     }
 
