@@ -1,15 +1,9 @@
 import { useRef, useState, useEffect } from 'react'
 import './otpgenerator.css'
 import axios from 'axios';
-import Countdown from '../Counter/Counter';
-export default function Otpgenerator(props) {
-    // console.log(props)
-    const [timeLeft, setTimeLeft] = useState('');
-    const [number, setNumber] = useState('');
-    const countRef = useRef(null)
+export default function Otpgenerator() {
 
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
+    const [number, setNumber] = useState('');
 
     // function to take input from input field
     function handleOnChange(event) {
@@ -49,8 +43,9 @@ export default function Otpgenerator(props) {
             const response = await axios.post(url, data, { headers: { 'Content-Type': 'application/json' } });
             console.log(response.data);
             alert("otp send successfully");
+            setNumber('')
         } catch (error) {
-            alert("please wait for 2 minutes then try again or try some different number for otp", error.message);
+            alert("please wait for 2 minutes then try again or try some different number for otp");
         }
     }
 
@@ -68,12 +63,12 @@ export default function Otpgenerator(props) {
         <>
             <div className="alignments">
                 <div className="content">
-                    <div className="d-flex justify-content-center p-2"><h3>Otp Generator</h3></div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-center p-2"><h4>Otp Generator</h4></div>
+                    <div className="d-flex justify-content-evenly">
                         <div>
                             <input type="text" value={number} className="form-control" placeholder="Enter Number to guess" onChange={handleOnChange} />
                         </div>
-                        <div><button id="sadhakjdkad" className="btn btn-primary" onClick={sendData}>Get otp</button ></div>
+                        <div><button id="sadhakjdkad" className="btn btn-primary" onClick={sendData}>Get OTP</button ></div>
                     </div>
                 </div>
             </div >
