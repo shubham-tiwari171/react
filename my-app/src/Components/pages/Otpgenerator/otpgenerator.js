@@ -63,7 +63,7 @@ export default function Otpgenerator() {
         <>
             <div className="alignments">
                 <div className="content">
-                    <div className="d-flex justify-content-center p-2"><h4>Otp Generator</h4></div>
+                    <div className="d-flex justify-content-center p-2"><h4>Generate Otp</h4></div>
                     <div className="d-flex justify-content-evenly">
                         <div>
                             <input type="text" value={number} className="form-control" placeholder="Enter Number to guess" onChange={handleOnChange} />
