@@ -54,7 +54,7 @@ export default function Otpgenerator() {
 
     // validating phone number
     function validateNumber(input) {
-        const regex = /^[1-9]{1}[0-9]{9}$/;
+        const regex = /^[6-9]\d{9}$/;
         let result = regex.test(input);
         if (result)
             return input;
