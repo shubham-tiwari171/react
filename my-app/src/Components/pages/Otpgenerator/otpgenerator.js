@@ -10,29 +10,7 @@ export default function Otpgenerator() {
         setNumber(Number(event.target.value));
     }
 
-    //trying to fetch api using fetch method;
-    // async function sendData() {
-    //     let mobileNumber = validateNumber(number)
-    //     console.log(mobileNumber)
-    //     const url = "https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP"
-    //     const data = { mobile: 6764326882 };
-    //     try {
-    //         const response = await fetch(url, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(data)
-    //         });
-    //         const responseData = await response.json();
-    //         console.log(responseData);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    //     setNumber('')
-    // }
-
-    // api fetching 
+    // api calling 
     async function sendData() {
 
         let mobileNumber = validateNumber(number)
@@ -54,7 +32,7 @@ export default function Otpgenerator() {
 
     // validating phone number
     function validateNumber(input) {
-        const regex = /^[1-9]{1}[0-9]{9}$/;
+        const regex = /^[6-9]\d{9}$/;
         let result = regex.test(input);
         if (result)
             return input;
