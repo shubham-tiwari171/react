@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import './otpgenerator.css'
-import axios from 'axios';
+
 export default function Otpgenerator() {
 
     const [number, setNumber] = useState('');
