@@ -21,7 +21,7 @@ export default function Header() {
                         <a href="">Contact Us</a>
                         <a href="">Get Started</a>
                         <button className="button">
-                            <a href="">Contact</a>
+                            <a href="">Login</a>
                         </button>
                     </div>
                 </div>
