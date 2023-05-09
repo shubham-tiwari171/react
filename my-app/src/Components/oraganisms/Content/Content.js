@@ -27,15 +27,13 @@ export default function Hero() {
                         <input type="text" name="" id="" />
                         <button className="button">Search</button>
                     </div>
-                    <div className={`flexCenter ${styles["stats"]}`}>
-                        <div className="flexColStart"></div>
-                    </div>
+
                 </div>
 
                 {/* right side */}
                 <div className={`flexCenter ${styles['hero-right']}`}>
                     <div className={`${styles["image-container"]}`}>
-                        <img src="./hero-image.png" alt="hero image" />
+                        <img src="./home.jpg" alt="hero image" />
                     </div>
                 </div>
             </div>
