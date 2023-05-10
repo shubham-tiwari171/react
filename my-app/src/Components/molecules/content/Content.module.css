@@ -70,7 +70,6 @@
 
 @media screen and (max-width: 1575px) {
   .hero-container {
-    margin: 2rem 0rem 0rem 0rem;
     justify-content: space-evenly;
     align-items: center;
   }
@@ -82,7 +81,6 @@
 
 @media screen and (max-width: 1250px) {
   .hero-container {
-    margin: 2rem 0rem 0rem 0rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -91,7 +89,6 @@
 
 @media screen and (max-width: 500px) {
   .hero-container {
-    margin: 2rem 0rem 0rem 0rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
