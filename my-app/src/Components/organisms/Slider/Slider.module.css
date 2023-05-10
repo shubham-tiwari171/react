@@ -1,0 +1,21 @@
+.wrapper {
+  width: 63%;
+  display: flex;
+  margin: auto;
+  padding: 1rem;
+  gap: 0.6rem;
+  overflow: scroll;
+}
+.wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.image {
+  border-radius: 10px;
+  margin: 0.4rem;
+}
+.c-price {
+  color: rgb(140 139 139);
+  font-size: 1.2rem;
+  text-align: start;
+}

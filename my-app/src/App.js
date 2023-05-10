@@ -1,24 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/molecules/header-items/header';
+import Content from './components/molecules/content/Content';
+import Companies from './components/atoms/Companies/Companies';
+import Residencies from './components/atoms/Resedencies/Residencies';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Content />
+      <Companies />
+      <Residencies />
+    </>
   );
 }
 
