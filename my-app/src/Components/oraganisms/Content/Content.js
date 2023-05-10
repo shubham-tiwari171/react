@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react'
 import styles from "./Content.module.css";
 import { HiLocationMarker } from "react-icons/hi";
-
-export default function Hero() {
+export default function Content() {
     return (
         <section className={`${styles['hero-wrapper']}`}>
             <div className={`padding innerWidth flexCenter ${styles['hero-container']}`}>
@@ -10,7 +9,6 @@ export default function Hero() {
 
                 <div className={`flexColStart ${styles['hero-left']}`}>
                     <div className={` ${styles["hero-title"]}`}>
-                        <div className={` ${styles["orange-circle"]}`}></div>
                         <h1>
                             Discover <br />
                             Most Suitable <br /> Property

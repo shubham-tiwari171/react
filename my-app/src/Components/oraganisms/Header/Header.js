@@ -1,38 +1,62 @@
-import React from "react";
-import styles from "./Header.module.css";
-import { useState } from "react";
-export default function Header() {
+import "./Header.css";
+import { MdClear, MdDensityMedium } from "react-icons/md";
+import { useState, useEffect } from "react";
 
-    const [isToggleOn, setIsToggleOn] = useState(false);
+function Header() {
+    const [toggle, setToggle] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleClick = () => {
-        setIsToggleOn(!isToggleOn);
-    };
+    useEffect(() => {
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+            if (windowWidth > 900) {
+                setToggle(false);
+            }
+        }
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [toggle]);
+
+    function handleToggle() {
+        setToggle(!toggle);
+    }
 
     return (
-        <section className={`${styles['h-wrapper']}`}>
-            <div className={`flexCenter innerWidth padding ${styles["h-container"]}`}>
-                <div className={`d-flex justify-content-center ${isToggleOn ? 'flex-column' : ''}`}>
-                    <span> <img src="./logo.png" alt="logo" width={100} /></span>
+        <>
+            <nav>
+                <div className="container-fluid nav-bacground d-flex justify-content-space-between g-5">
+                    <div className="left">
+                        <img src="./logo192.png" alt="" />
+                    </div>
+                    <div
+                        className={`d-flex justify-content-center align-items-center 
+            ${toggle ? "flexColoum" : ""}`}
+                    >
+                        {/*toggle the icon*/}
+                        <div className="hamburger" onClick={handleToggle}>
+                            <span className="d-flex justify-content-center align-items-center">
+                                {toggle ? <MdClear size={25} /> : <MdDensityMedium size={25} />}
+                            </span>
+                        </div>
 
-                    <div className={`flexCenter ${styles.menu} ${styles['h-gap']} ${isToggleOn ? 'flex-column' : ''}`}>
-                        <a href="">Recidencies</a>
-                        <a href="">Our values</a>
-                        <a href="">Contact Us</a>
-                        <a href="">Get Started</a>
-                        <button className="button">
-                            <a href="">Login</a>
-                        </button>
+                        <div
+                            className={`d-flex justify-content-center align-items-center 
+              ${toggle ? "flexColoum" : "right"}  gap-3`}
+                        >
+                            <div className="menu-items">Home</div>
+                            <div className="menu-items">About Us</div>
+                            <div className="menu-items">Services</div>
+                            <div className="menu-items">Terms</div>
+                            <div className="menu-items">Contact Us</div>
+                            <button className="button">Login</button>
+                        </div>
                     </div>
                 </div>
-
-                <div className={`styles.container ${isToggleOn ? styles.change : ''}`} onClick={handleClick}>
-                    <div className={styles.bar1}></div>
-                    <div className={styles.bar2}></div>
-                    <div className={styles.bar3}></div>
-                </div>
-            </div>
-
-        </section >
+            </nav>
+            {/* {windowWidth} */}
+        </>
     );
 }
+export default Header;
