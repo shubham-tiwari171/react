@@ -17,7 +17,7 @@ function Header() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [toggle]);
+  },);
 
   function handleToggle() {
     setToggle(!toggle);

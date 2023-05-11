@@ -1,8 +1,17 @@
 import styles from './Slider.module.css'
+import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 export default function Slider(porps) {
+    function handlePrevClick() { }
+    function handleNextClick() { }
 
     return (
         <>
+            <div className={styles.buttons}>
+                <div className={styles.container}>
+                    <button className={`${styles['best-choice-button']}`} onClick={handlePrevClick} >Prev</button>
+                    <button className={`${styles['best-choice-button']}`} onClick={handleNextClick}>Next</button>
+                </div>
+            </div >
             <div className={styles.wrapper}>
 
                 {

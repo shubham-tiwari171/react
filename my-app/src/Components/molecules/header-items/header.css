@@ -21,6 +21,7 @@
 } */
 .right {
   color: white;
+  flex-direction: row;
 }
 .menu-items {
   width: 7rem;
