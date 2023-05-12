@@ -2,7 +2,7 @@ import './Tictactoe.css';
 import { useState, useEffect, useRef } from 'react';
 import Cells from '../../atoms/Cells/Cells';
 export default function Tictactoe() {
-    const [cells, setCells] = useState(["circle", "", "", "", "", "", "", "", "",]);
+    const [cells, setCells] = useState(["", "", "", "", "", "", "", "", "",]);
     const [go, setGo] = useState('circle');
     const [winMsg, setWinMsg] = useState(null);
     const gameboardRef = useRef([]);
@@ -41,12 +41,6 @@ export default function Tictactoe() {
         });
 
         if (matchedPair.length > 0) {
-            // console.log(matchedPair)
-            // if (gameboardRef.current.length > 0)
-            //     console.log("hii")
-            // else {
-            //     console.log("b")
-            // }
             setWinMsg("Circle wins");
         } else if (matchedPair.length > 0) {
             setWinMsg("Cross wins");
@@ -54,24 +48,39 @@ export default function Tictactoe() {
     }
 
     const handleResetClick = () => {
+        resetCellsStyle(true);
         setCells(["", "", "", "", "", "", "", "", "",]);
         setWinMsg(null);
-        setGo('circle')
+        setGo("circle");
     }
-    const resetCellsStyle = () => {
-        const squares = Array.from(gameboardRef.current.children).map(child => Number(child.getAttribute('id')));
-        // const ids = [];
-        // for (let i = 0; i < squares.length; i++) {
-        //     const id = squares[i].getAttribute('id');
-        //     ids.push(Number(id));
-
-        //     squares[i].classList.remove('clicked', 'winner');
-        // }
-        // squares.forEach(square => {
-
-        //     square.classList.add("")
-
-        // });
+    const resetCellsStyle = (boolValue) => {
+        //const squares = Array.from(gameboardRef.current.children).map(child => Number(child.getAttribute('id')));
+        const squares = gameboardRef.current.children
+        const ids = []
+        let winPair = []
+        matchedPair.forEach((arr) => arr.forEach((inner) => winPair.push(inner)));
+        if (winPair.length === 3) {
+            winPair.forEach((ele) => {
+                for (let i = 0; i < squares.length; i++) {
+                    const id = squares[i].getAttribute('id');
+                    if (ele === Number(id)) {
+                        squares[i].classList.add("bg-color")
+                        return;
+                    }
+                }
+            })
+            if (boolValue === true) {
+                winPair.forEach((ele) => {
+                    for (let i = 0; i < squares.length; i++) {
+                        const id = squares[i].getAttribute('id');
+                        if (ele === Number(id)) {
+                            console.log(squares[i].classList.remove("bg-color"))
+                            return;
+                        }
+                    }
+                })
+            }
+        }
     };
 
     return (
