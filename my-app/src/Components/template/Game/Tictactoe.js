@@ -1,14 +1,19 @@
 import './Tictactoe.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Cells from '../../atoms/Cells/Cells';
 export default function Tictactoe() {
-    const [cells, setCells] = useState(["", "", "", "", "", "", "", "", "",]);
+    const [cells, setCells] = useState(["circle", "", "", "", "", "", "", "", "",]);
     const [go, setGo] = useState('circle');
     const [winMsg, setWinMsg] = useState(null);
+    const gameboardRef = useRef([]);
     const message = `It's ${go} turn`;
     const matchedPair = [];
 
-    useEffect(() => { checkScore() }, [cells])
+    useEffect(() => {
+        checkScore()
+        resetCellsStyle()
+    }, [cells])
+
     const checkScore = () => {
         const winCombination = [
             [0, 1, 2],
@@ -36,7 +41,12 @@ export default function Tictactoe() {
         });
 
         if (matchedPair.length > 0) {
-            console.log(matchedPair)
+            // console.log(matchedPair)
+            // if (gameboardRef.current.length > 0)
+            //     console.log("hii")
+            // else {
+            //     console.log("b")
+            // }
             setWinMsg("Circle wins");
         } else if (matchedPair.length > 0) {
             setWinMsg("Cross wins");
@@ -48,11 +58,27 @@ export default function Tictactoe() {
         setWinMsg(null);
         setGo('circle')
     }
+    const resetCellsStyle = () => {
+        const squares = Array.from(gameboardRef.current.children).map(child => Number(child.getAttribute('id')));
+        // const ids = [];
+        // for (let i = 0; i < squares.length; i++) {
+        //     const id = squares[i].getAttribute('id');
+        //     ids.push(Number(id));
+
+        //     squares[i].classList.remove('clicked', 'winner');
+        // }
+        // squares.forEach(square => {
+
+        //     square.classList.add("")
+
+        // });
+    };
+
     return (
         <>
             <h1>Welcome to tic tac toe</h1>
             <div className='container'>
-                <div className='gameboard'>
+                <div ref={gameboardRef} className='gameboard'>
                     {
                         cells.map((cell, index) =>
                             <Cells

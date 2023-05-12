@@ -1,6 +1,6 @@
 import React from 'react'
 import './Cell.css'
-const Cells = ({ id, cells, setGo, go, setCells, cell, winMsg, matchedPair }) => {
+const Cells = ({ id, cells, setGo, go, setCells, cell, winMsg }) => {
 
     const handleClick = (e) => {
 
@@ -23,13 +23,11 @@ const Cells = ({ id, cells, setGo, go, setCells, cell, winMsg, matchedPair }) =>
         }
 
         if (go === 'circle') {
-
             cell.classList.add('circle');
             handleCellChange('circle');
             setGo('cross');
 
         } else if (go === 'cross') {
-
             cell.classList.add('cross');
             handleCellChange('cross');
             setGo('circle');
@@ -47,7 +45,8 @@ const Cells = ({ id, cells, setGo, go, setCells, cell, winMsg, matchedPair }) =>
         })
         setCells(newCells);
     }
-    //matchedPair.forEach(element => { element.classList.add("bg-color") })
+
+    // matchedPair.forEach(element => { element.classList.add("bg-color") })
 
     return (
         <div className="square" id={id} onClick={handleClick}>
