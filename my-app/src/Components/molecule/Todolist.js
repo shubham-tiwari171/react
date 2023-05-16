@@ -70,7 +70,8 @@ export const Todolist = () => {
     console.log(data)
   }
 
-  const handleUpdateClick = () => {
+  const handleUpdateClick = (e) => {
+    e.preventDefault();
     putData(editItemId, editItem);
   }
 
