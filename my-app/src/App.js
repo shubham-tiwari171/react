@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Todolist } from './components/molecule/Todolist';
+import { Todolist } from './Components/molecule/Todolist';
 function App() {
   return (
     <><Todolist /></>
