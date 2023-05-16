@@ -1,5 +1,5 @@
 import styles from './Slider.module.css'
-import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
+// import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 export default function Slider(porps) {
     function handlePrevClick() { }
     function handleNextClick() { }

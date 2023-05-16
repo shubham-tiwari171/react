@@ -3,7 +3,6 @@ import React from "react";
 import Slider from "../../organisms/Slider/Slider";
 import { slider } from './slider.js'
 export default function Residencies() {
-  console.log(slider);
   return (
     <section className={`${styles['r-wrapper']}`}>
       <div className={`padding innerWidth ${styles['r-container']}`}>
