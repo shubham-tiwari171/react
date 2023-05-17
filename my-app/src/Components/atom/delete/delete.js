@@ -7,6 +7,10 @@ export function Delete() {
     const [todo, setTodo] = useState([])
     const [data, setData] = useState('')
 
+    useEffect(() => {
+        let getData = JSON.parse(localStorage.getItem("todo"))
+        setTodo([...getData]);
+    }, [])
 
     const handleChange = (e) => {
         setData(e.target.value)
@@ -14,6 +18,8 @@ export function Delete() {
 
     const handleClick = () => {
         let dataObject = { id: uuidv4(), name: data };
+        let todoData = [...todo, dataObject]
+        localStorage.setItem('todo', JSON.stringify(todoData));
         setTodo([...todo, dataObject]);
         setData('');
     }
@@ -23,12 +29,12 @@ export function Delete() {
         const updatedTodo = todo.filter((item) => item.id !== id);
         setTodo(updatedTodo);
     }
-    const getData = () => {
-        let locaStorageData = localStorage.getItem("todo");
-        if (locaStorageData) {
-            return JSON.parse(locaStorageData)
-        }
-    }
+    // const getData = () => {
+    //     let locaStorageData = localStorage.getItem("todo");
+    //     if (locaStorageData) {
+    //         return JSON.parse(locaStorageData)
+    //     }
+    // }
     return (
         <>
             <div className='d-flex flex-column'>
