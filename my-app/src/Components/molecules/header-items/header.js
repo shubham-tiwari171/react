@@ -50,7 +50,7 @@ function Header() {
               <Link to="/about" className="menu-items">About Us</Link>
               <Link to='/services' className="menu-items">Services</Link>
               <Link to="/terms" className="menu-items">Terms</Link>
-              <Link to="contact" className="menu-items">Contact Us</Link>
+              <Link to="/contact" className="menu-items">Contact Us</Link>
               <button className="button"><Link to='/login'>Login</Link></button>
             </div>
           </div>

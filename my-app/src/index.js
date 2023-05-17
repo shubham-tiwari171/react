@@ -23,7 +23,6 @@ root.render(
       <Route path="/terms" element={<Terms />} />
       <Route path="/login" element={<Login />} />
     </Routes>
-
   </BrowserRouter>,
 );
 
