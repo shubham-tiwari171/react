@@ -29,12 +29,7 @@ export function Delete() {
         const updatedTodo = todo.filter((item) => item.id !== id);
         setTodo(updatedTodo);
     }
-    // const getData = () => {
-    //     let locaStorageData = localStorage.getItem("todo");
-    //     if (locaStorageData) {
-    //         return JSON.parse(locaStorageData)
-    //     }
-    // }
+
     return (
         <>
             <div className='d-flex flex-column'>
