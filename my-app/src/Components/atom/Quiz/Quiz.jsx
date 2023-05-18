@@ -6,21 +6,49 @@ export const Quiz = (props) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [next, setNext] = useState(0);
   const [count, setCount] = useState(0);
+  const [start, setStart] = useState("start");
+  const [timeLeft, setTimeLeft] = useState(null);
+  const [autoChangeOuestion, setAutoChangeOuestion] = useState(null);
 
   useEffect(() => {
     if (next === questions.length) {
       score();
     }
-  }, [next]);
+    if (timeLeft > 0) {
+      const timer = setTimeout(
+        () => setTimeLeft((timeLeft) => timeLeft - 1),
+        1000
+      );
+      autoChangeOue();
+      return () => clearTimeout(timer);
+    }
+  }, [timeLeft, start, autoChangeOuestion]);
 
   let questions = props.data;
-  console.log(questions.length);
 
   const handleClick = () => {
     if (next < questions.length) {
       setNext(next + 1);
       setSelectedOption(null);
+      setTimeLeft(30);
     }
+  };
+  const autoChangeOue = () => {
+    setAutoChangeOuestion(timeLeft);
+    if (autoChangeOuestion === 0) {
+      setNext(next + 1);
+      setSelectedOption(null);
+      setTimeLeft(30);
+      setAutoChangeOuestion(null);
+    }
+  };
+
+  const handleStartClick = () => {
+    setStart("stop");
+    let timeOut = setTimeout(() => {
+      setTimeLeft(30);
+    }, 1000);
+    return () => clearTimeout(timeOut);
   };
 
   const handleOptionSelect = (id) => {
@@ -48,8 +76,14 @@ export const Quiz = (props) => {
           You scored {count} out of {questions.length}
         </div>
       )}
-
-      {next < questions.length && (
+      {start === "start" && (
+        <div className={`${styles["score-section"]}`}>
+          <button className="btn btn-outline-light" onClick={handleStartClick}>
+            Start Quiz
+          </button>
+        </div>
+      )}
+      {next < questions.length && start === "stop" && (
         <>
           <div className={`${styles["question-section"]}`}>
             <div className={`${styles["question-count"]}`}>
@@ -61,6 +95,11 @@ export const Quiz = (props) => {
             </div>
             <div className={`${styles["question-text"]}`}>
               {questions[next] && questions[next].questionText}
+            </div>
+            <div
+              className={`d-flex justify-content-center align-items-center ${styles["timer"]}`}
+            >
+              <span>{timeLeft}</span>
             </div>
           </div>
           <div
