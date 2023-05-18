@@ -51,12 +51,21 @@ export const Quiz = (props) => {
       }
     });
   };
-
+  const handleResetClick = () => {
+    setNext(0);
+    setCount(0);
+    setStart("start");
+  };
   return (
     <>
       {next === questions.length && (
-        <div className={`${styles["score-section"]}`}>
+        <div
+          className={`d-flex justify-content-center align-items-center flex-column flex-column ${styles["score-section"]} g-4`}
+        >
           You scored {count} out of {questions.length}
+          <button className="btn btn-outline-light" onClick={handleResetClick}>
+            Start Quiz
+          </button>
         </div>
       )}
       {start === "start" && (
