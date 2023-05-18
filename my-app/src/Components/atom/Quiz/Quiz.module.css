@@ -40,7 +40,7 @@
   justify-content: space-between;
 }
 
-button {
+.radio-button {
   width: 100%;
   font-size: 16px;
   color: #ffffff;
@@ -52,6 +52,7 @@ button {
   align-items: center;
   border: 5px solid #234668;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .correct {
@@ -62,14 +63,30 @@ button {
   background-color: #ff3333;
 }
 
-button:hover {
+.radio-button:hover {
   background-color: #555e7d;
 }
 
-button:focus {
+.radio-button:focus {
   outline: none;
 }
 
-button svg {
-  margin-right: 5px;
+label {
+  font: 1rem "Fira Sans", sans-serif;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+label:hover {
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+input[type="radio"]:hover {
+  cursor: pointer;
+}
+button {
+  width: 100%;
 }
