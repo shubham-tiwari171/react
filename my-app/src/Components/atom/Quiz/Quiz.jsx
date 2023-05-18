@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Quiz.module.css";
-
+import { Timer } from "C:/Users/tshub/Desktop/react/my-app/src/Components/atom/Timer/Timer";
 export const Quiz = (props) => {
   const [correctOptions, setcorrectOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -14,15 +14,7 @@ export const Quiz = (props) => {
     if (next === questions.length) {
       score();
     }
-    if (timeLeft > 0) {
-      const timer = setTimeout(
-        () => setTimeLeft((timeLeft) => timeLeft - 1),
-        1000
-      );
-      autoChangeOue();
-      return () => clearTimeout(timer);
-    }
-  }, [timeLeft, start, autoChangeOuestion]);
+  }, [next]);
 
   let questions = props.data;
 
@@ -31,15 +23,6 @@ export const Quiz = (props) => {
       setNext(next + 1);
       setSelectedOption(null);
       setTimeLeft(30);
-    }
-  };
-  const autoChangeOue = () => {
-    setAutoChangeOuestion(timeLeft);
-    if (autoChangeOuestion === 0) {
-      setNext(next + 1);
-      setSelectedOption(null);
-      setTimeLeft(30);
-      setAutoChangeOuestion(null);
     }
   };
 
@@ -96,11 +79,7 @@ export const Quiz = (props) => {
             <div className={`${styles["question-text"]}`}>
               {questions[next] && questions[next].questionText}
             </div>
-            <div
-              className={`d-flex justify-content-center align-items-center ${styles["timer"]}`}
-            >
-              <span>{timeLeft}</span>
-            </div>
+            <Timer timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
           </div>
           <div
             className="d-flex justify-content-center align-items-center flex-column"
