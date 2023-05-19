@@ -1,20 +1,29 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Quiz.module.css";
-import { Timer } from "C:/Users/tshub/Desktop/react/my-app/src/Components/atom/Timer/Timer";
-export const Quiz = (props) => {
+
+export default function Quiz(props) {
   const [correctOptions, setcorrectOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [next, setNext] = useState(0);
   const [count, setCount] = useState(0);
   const [start, setStart] = useState("start");
   const [timeLeft, setTimeLeft] = useState(null);
-  const [autoChangeOuestion, setAutoChangeOuestion] = useState(null);
 
   useEffect(() => {
     if (next === questions.length) {
       score();
     }
   }, [next]);
+
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setTimeout(
+        () => setTimeLeft((timeLeft) => timeLeft - 1),
+        1000
+      );
+      return () => clearTimeout(timer);
+    }
+  }, [timeLeft]);
 
   let questions = props.data;
 
@@ -64,7 +73,7 @@ export const Quiz = (props) => {
         >
           You scored {count} out of {questions.length}
           <button className="btn btn-outline-light" onClick={handleResetClick}>
-            Start Quiz
+            Start Quiz Again
           </button>
         </div>
       )}
@@ -88,7 +97,12 @@ export const Quiz = (props) => {
             <div className={`${styles["question-text"]}`}>
               {questions[next] && questions[next].questionText}
             </div>
-            <Timer timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
+            {/* <Timer timeLeft={timeLeft} setTimeLeft={setTimeLeft} /> */}
+            <div
+              className={`d-flex justify-content-center align-items-center ${styles["timer"]}`}
+            >
+              <span>{timeLeft}</span>
+            </div>
           </div>
           <div
             className="d-flex justify-content-center align-items-center flex-column"
@@ -129,4 +143,4 @@ export const Quiz = (props) => {
       )}
     </>
   );
-};
+}

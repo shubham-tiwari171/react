@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Quiz } from './Components/atom/Quiz/Quiz'
+import Quiz from './Components/atom/Quiz/Quiz'
 import { questions } from './quizdata'
 function App() {
 
