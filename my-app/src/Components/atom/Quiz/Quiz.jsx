@@ -136,7 +136,7 @@ export default function Quiz(props) {
             </div>
 
             <button className="btn btn-outline-light" onClick={handleClick}>
-              Next
+              {next + 1 === questions.length ? "Submit" : "Next"}
             </button>
           </div>
         </>
