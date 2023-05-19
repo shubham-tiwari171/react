@@ -64,7 +64,7 @@ export default function Quiz(props) {
     setNext(0);
     setCount(0);
     setStart("start");
-    setTimeLeft(30);
+    setTimeLeft(0);
   };
   return (
     <>
