@@ -8,7 +8,7 @@ import Residencies from './Components/atoms/Resedencies/Residencies';
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Content />
       <Companies />
       <Residencies />
