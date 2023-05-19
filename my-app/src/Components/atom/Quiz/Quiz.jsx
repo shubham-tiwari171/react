@@ -56,7 +56,7 @@ export default function Quiz(props) {
   const score = () => {
     correctOptions.forEach((answer, index) => {
       if (answer.isCorrect === true) {
-        setCount((count) => count + 1);
+        setCount((count) => count + 2);
       }
     });
   };
@@ -64,6 +64,7 @@ export default function Quiz(props) {
     setNext(0);
     setCount(0);
     setStart("start");
+    setTimeLeft(30);
   };
   return (
     <>
@@ -71,7 +72,9 @@ export default function Quiz(props) {
         <div
           className={`d-flex justify-content-center align-items-center flex-column flex-column ${styles["score-section"]} g-4`}
         >
-          You scored {count} out of {questions.length}
+          {count > 12 && <span>Congratulations you passed the test</span>}
+          {count < 12 && <span> You have failed the test start again</span>}
+          You scored {count} out of {questions.length * 2}
           <button className="btn btn-outline-light" onClick={handleResetClick}>
             Start Quiz Again
           </button>
