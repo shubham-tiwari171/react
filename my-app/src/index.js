@@ -10,19 +10,24 @@ import { Services } from './Components/molecules/Services/Services';
 import { Contact } from './Components/molecules/Contact/Contact';
 import { Terms } from './Components/molecules/Terms/Terms';
 import { Login } from './Components/molecules/Login/Login';
+import Header from './Components/molecules/header-items/header'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     {/* <App /> */}
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/terms" element={<Terms />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </div>
+
   </BrowserRouter>,
 );
 
