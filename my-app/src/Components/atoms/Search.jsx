@@ -6,7 +6,7 @@ import { useState } from "react";
 const Search = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [originalData, setOriginalData] = useState([]);
-
+  const [showData, setShowData] = useState(false);
   useEffect(() => {
     getData();
   }, []);
@@ -22,9 +22,10 @@ const Search = () => {
   const handleSearch = (e) => {
     const searchTerm = e.target.value;
     if (searchTerm === "") {
+      setShowData(false);
       setSearchResult([...originalData]);
-      //getData();
     } else {
+      setShowData(true);
       const filteredData = originalData.filter((element) =>
         element.state_name.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -87,18 +88,20 @@ const Search = () => {
                   {ele["state_name"]}
                 </div>
               ))} */}
-          <div className="search-results flex-column">
-            {searchResult.map((ele) => (
-              <div
-                key={ele["state_id"]}
-                className="list-items  d-flex justify-content-start align-items-center  flex-column"
-              >
-                <div className="list-items d-flex justify-content-start align-items-center">
-                  <span>{ele["state_name"]}</span>
+          {showData === true && (
+            <div className="search-results flex-column">
+              {searchResult.map((ele) => (
+                <div
+                  key={ele["state_id"]}
+                  className="list-items  d-flex justify-content-start align-items-center  flex-column"
+                >
+                  <div className="list-items d-flex justify-content-start align-items-center">
+                    <span>{ele["state_name"]}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
         {/* <div className="buttons">
           <button className="button" type="button">
