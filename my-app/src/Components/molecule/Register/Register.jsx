@@ -132,7 +132,6 @@ const Register = () => {
             <button type="submit" className="btn signup">
               Create Account
             </button>
-            <button onClick={getCityName}>Fesfsdf</button>
           </form>
         </div>
       </div>
