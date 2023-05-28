@@ -2,10 +2,6 @@ import React from "react";
 import "./Register.css";
 const Register = () => {
   return (
-    // <div className="form-bg">
-    //   <div className="container">
-    //     <div className="row">
-    //       <div className="col-md-offset-3 col-md-6">
     <>
       <div className="d-flex justify-content-center align-items-center">
         <div className="form-container" style={{ marginTop: "100px" }}>
