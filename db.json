@@ -1,0 +1,254 @@
+{
+  "questions": [
+    {
+      "id": "89d44d53-0b70-4010-b8c4-b32a11a7e969",
+      "questionText": "RWhich of the following command is used to create react-js-app ?",
+      "answerOptions": [
+        {
+          "answerText": "npx create-react-app appname",
+          "isCorrect": true
+        },
+        {
+          "answerText": "npm install create-react-app",
+          "isCorrect": false
+        },
+        {
+          "answerText": "npx install create-react-app -g",
+          "isCorrect": false
+        },
+        {
+          "answerText": "install – l create-react-app",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "d177512c-9042-4982-8541-f690943c268d",
+      "questionText": "In React.js which one of the following is used to create a class for?",
+      "answerOptions": [
+        {
+          "answerText": "Create",
+          "isCorrect": false
+        },
+        {
+          "answerText": "Extends",
+          "isCorrect": true
+        },
+        {
+          "answerText": "Inherits",
+          "isCorrect": false
+        },
+        {
+          "answerText": "Delete",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "ef910b50-3124-4c12-9a07-5f52f86ece17",
+      "questionText": "What is the default port number in which the application run ?",
+      "answerOptions": [
+        {
+          "answerText": "3000",
+          "isCorrect": true
+        },
+        {
+          "answerText": "8000",
+          "isCorrect": false
+        },
+        {
+          "answerText": "4500",
+          "isCorrect": false
+        },
+        {
+          "answerText": "5000",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "fcc24fb9-03a9-42ca-8213-253e8f5eb83c",
+      "questionText": "Which of the following valid component return type of React ?",
+      "answerOptions": [
+        {
+          "answerText": "2",
+          "isCorrect": false
+        },
+        {
+          "answerText": "4",
+          "isCorrect": false
+        },
+        {
+          "answerText": "1",
+          "isCorrect": true
+        },
+        {
+          "answerText": "7",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "e83dfd11-1305-4daf-8c55-f131c611d24e",
+      "questionText": "Which of the following is a way to handle data in React.js ?",
+      "answerOptions": [
+        {
+          "answerText": "State & Props",
+          "isCorrect": true
+        },
+        {
+          "answerText": "Services & Components",
+          "isCorrect": false
+        },
+        {
+          "answerText": "State & Services",
+          "isCorrect": false
+        },
+        {
+          "answerText": "State & Component",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "4fa7e596-4c55-4ec3-8cc1-fa5f50a5eff5",
+      "questionText": "Which of the following is must for the API in React.js ?",
+      "answerOptions": [
+        {
+          "answerText": "SetinitialComponent",
+          "isCorrect": false
+        },
+        {
+          "answerText": "renderComponent",
+          "isCorrect": true
+        },
+        {
+          "answerText": "render",
+          "isCorrect": false
+        },
+        {
+          "answerText": "All of the above",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "ee0c7610-adbd-44cc-9531-9a9dbebe8d2a",
+      "questionText": "Which of the following is true regarding Babel ?",
+      "answerOptions": [
+        {
+          "answerText": "Compiler",
+          "isCorrect": false
+        },
+        {
+          "answerText": "Transpilar",
+          "isCorrect": false
+        },
+        {
+          "answerText": "Both of the above",
+          "isCorrect": true
+        },
+        {
+          "answerText": "None of the above",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "e6f0e1d9-b273-40a9-9072-4204f15d7d3b",
+      "questionText": "In React.js, how we can pass the data from one component to another in React.js ?",
+      "answerOptions": [
+        {
+          "answerText": "SetState",
+          "isCorrect": false
+        },
+        {
+          "answerText": "Render with arguments",
+          "isCorrect": false
+        },
+        {
+          "answerText": "Props",
+          "isCorrect": true
+        },
+        {
+          "answerText": "PropTypes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "50d060a8-a12f-4372-8fac-0f51f2235fe9",
+      "questionText": "Which of the following function is true about changing the state in ?",
+      "answerOptions": [
+        {
+          "answerText": "this.State{}",
+          "isCorrect": false
+        },
+        {
+          "answerText": "this.setState",
+          "isCorrect": true
+        },
+        {
+          "answerText": "this.setChangeState",
+          "isCorrect": false
+        },
+        {
+          "answerText": " All of the above",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "9b5d6e32-4ffa-4f5c-88e7-25601b237ac3",
+      "questionText": "Which of the following method is true about referring parent class in React.js ?",
+      "answerOption": [
+        {
+          "answerText": "self()",
+          "isCorrect": false
+        },
+        {
+          "answerText": "inherits()",
+          "isCorrect": false
+        },
+        {
+          "answerText": "this()",
+          "isCorrect": false
+        },
+        {
+          "answerText": "super()",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "7518a163-7313-4e69-9081-09cce2288b96",
+      "questionText": "what is your name ",
+      "answerOptions": [
+        {
+          "answerText": "shubahm",
+          "isCorrect": false
+        },
+        {
+          "answerText": "tiwari",
+          "isCorrect": true
+        },
+        {
+          "answerText": "anupam",
+          "isCorrect": false
+        },
+        {
+          "answerText": "yashraj",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "student": [{}]
+}

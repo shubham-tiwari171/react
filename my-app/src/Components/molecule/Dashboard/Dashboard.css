@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  height: 100vh;
+}
+
+/* .table-container {
+  display: flex;
+  justify-content: center;
+} */
+.table {
+  width: 100rem;
+  margin-top: 0px; /* Adjust the width as desired */
+}
