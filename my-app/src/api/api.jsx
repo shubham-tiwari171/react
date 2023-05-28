@@ -22,3 +22,14 @@ export const getApi = async () => {
     console.error(error);
   }
 };
+
+export const getCityData = async () => {
+  try {
+    const res = await axios.get(
+      "http://cdn-api.co-vin.in/api/v2/admin/location/states "
+    );
+    return res.data.states;
+  } catch (error) {
+    console.error(error);
+  }
+};

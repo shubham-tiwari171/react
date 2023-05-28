@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import "./Login.css";
-
+import { v4 as uuidv4 } from "uuid";
 const Login = () => {
   const [loginForm, setLoginForm] = useState({
+    id: "",
     email: "",
     password: "",
   });
 
   const handleInputChange = (e) => {
-    setLoginForm({ ...loginForm, [e.target.id]: e.target.value });
+    setLoginForm({ ...loginForm, id: uuidv4(), [e.target.id]: e.target.value });
   };
 
   const handleLoginFormSubmit = (e) => {

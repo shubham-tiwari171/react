@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.css";
-
+import { v4 as uuidv4 } from "uuid";
+import { getCityData } from "../../../api/api";
+import axios from "axios";
 const Register = () => {
   const [formData, setFormData] = useState({
+    id: "",
     username: "",
     email: "",
     password: "",
@@ -10,9 +13,15 @@ const Register = () => {
     phone: "",
     city: "",
   });
+  const [cities, setCities] = useState([]);
+  console.log(cities);
+
+  useEffect(() => {
+    getCityName();
+  }, []);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    setFormData({ ...formData, id: uuidv4(), [e.target.id]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -28,6 +37,15 @@ const Register = () => {
     console.log(formData);
   };
 
+  const getCityName = async () => {
+    try {
+      const res = await getCityData();
+      console.log(res);
+      setCities(res);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       <div className="d-flex justify-content-center align-items-center">
@@ -98,8 +116,13 @@ const Register = () => {
                 value={formData.city}
                 onChange={handleChange}
               >
-                <option value="paris">Paris</option>
-                <option value="new york">New York</option>
+                {cities &&
+                  cities.length > 0 &&
+                  cities.map((city) => (
+                    <option key={city.state_id} value={city.state_name}>
+                      {city.state_name}
+                    </option>
+                  ))}
               </select>
             </div>
 
@@ -109,6 +132,7 @@ const Register = () => {
             <button type="submit" className="btn signup">
               Create Account
             </button>
+            <button onClick={getCityName}>Fesfsdf</button>
           </form>
         </div>
       </div>

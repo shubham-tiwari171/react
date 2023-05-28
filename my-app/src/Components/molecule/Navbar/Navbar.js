@@ -27,13 +27,13 @@ const Navbar = () => {
                 </div>
                 <ul className="menu-items">
                     <li>
-                        <a >Home</a>
+                        <a onClick={() => handleNavigateClick('/navbar')}>Home</a>
                     </li>
                     <li>
-                        <a >About</a>
+                        <a onClick={() => handleNavigateClick('/navbar')}>About</a>
                     </li>
                     <li>
-                        <a >Category</a>
+                        <a onClick={() => handleNavigateClick('/navbar')}>Category</a>
                     </li>
                     <li>
                         <a onClick={() => handleNavigateClick('/login')}>Login</a>
@@ -42,7 +42,7 @@ const Navbar = () => {
                         <a onClick={() => handleNavigateClick('/signup')}>Sign up</a>
                     </li>
                 </ul>
-                <h1 className="logo">Quiz</h1>
+                <h1 className="logo" onClick={() => handleNavigateClick('/navbar')}>Quiz</h1>
             </div>
         </nav>
     )
