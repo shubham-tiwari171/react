@@ -1,10 +1,9 @@
 import React from 'react'
 import './Navbar.css';
-// import { useLocation, useNavigate } from 'react-router-dom';
-import Login from '../Login/Login';
+import { useLocation, useNavigate } from 'react-router-dom';
 const Navbar = () => {
-    // const navigation = useNavigate()
-    // const location = useLocation()
+    const navigation = useNavigate()
+    const location = useLocation()
     //const handleDashboardClick = (params) => {
     //     navigation(params)
     // }
@@ -14,9 +13,9 @@ const Navbar = () => {
     // const handleLoginClick = (params) => {
     //     navigation(params)
     // }
-    // const handleNavigationClik = (params) => {
-    //     navigation(params)
-    // }
+    const handleNavigateClick = (params) => {
+        navigation(params)
+    }
     return (
         <nav className="navbar navbar-dark">
             <div className="navbar-container container ">
@@ -28,19 +27,19 @@ const Navbar = () => {
                 </div>
                 <ul className="menu-items">
                     <li>
-                        <a href="#">Home</a>
+                        <a >Home</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a >About</a>
                     </li>
                     <li>
-                        <a href="#">Category</a>
+                        <a >Category</a>
                     </li>
                     <li>
-                        <a href="#">Login</a>
+                        <a onClick={() => handleNavigateClick('/login')}>Login</a>
                     </li>
                     <li>
-                        <a href="#">Sign up</a>
+                        <a onClick={() => handleNavigateClick('/signup')}>Sign up</a>
                     </li>
                 </ul>
                 <h1 className="logo">Quiz</h1>

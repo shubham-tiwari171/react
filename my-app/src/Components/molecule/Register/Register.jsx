@@ -60,12 +60,7 @@ const Register = () => {
                 <option value="new york">New York</option>
               </select>
             </div>
-            <div className="check-terms">
-              <input type="checkbox" className="checkbox" id="terms" />
-              <label className="check-label" htmlFor="terms">
-                I agree to the terms
-              </label>
-            </div>
+
             <span className="signin-link">
               Already have an account? Click here to <a href="">Login</a>
             </span>
