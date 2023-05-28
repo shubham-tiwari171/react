@@ -8,7 +8,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
     phone: "",
-    city: "paris",
+    city: "",
   });
 
   const handleChange = (e) => {
@@ -17,6 +17,14 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormData({
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      phone: "",
+      city: "",
+    });
     console.log(formData);
   };
 

@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
-import { useState } from "react";
+
 const Login = () => {
   const [loginForm, setLoginForm] = useState({
-    id: "",
     email: "",
     password: "",
   });
 
-  const handleLoginFormSubmit = (e) => {
+  const handleInputChange = (e) => {
     setLoginForm({ ...loginForm, [e.target.id]: e.target.value });
   };
 
-  const handleCahange = () => {};
+  const handleLoginFormSubmit = (e) => {
+    e.preventDefault();
+    // const formData = { ...loginForm };
+    console.log(loginForm);
+    setLoginForm({
+      email: "",
+      password: "",
+    });
+    // You can perform further actions with the formData object,
+    // such as sending it to a server or processing it in some way.
+  };
 
   return (
     <>
@@ -27,7 +36,8 @@ const Login = () => {
                 className="form-control"
                 id="email"
                 placeholder="Email Address"
-                onChange={handleCahange}
+                value={loginForm.email}
+                onChange={handleInputChange}
               />
             </div>
             <div className="form-group">
@@ -37,7 +47,8 @@ const Login = () => {
                 className="form-control"
                 id="password"
                 placeholder="Password"
-                onChange={handleCahange}
+                value={loginForm.password}
+                onChange={handleInputChange}
               />
             </div>
             <span className="signin-link">
@@ -50,4 +61,5 @@ const Login = () => {
     </>
   );
 };
+
 export default Login;
