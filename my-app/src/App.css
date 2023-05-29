@@ -1,0 +1,12 @@
+.app-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.content-container {
+  margin-top: 75px;
+}
+
+/* Additional styles for the navbar and content */

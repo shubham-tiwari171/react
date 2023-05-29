@@ -250,5 +250,60 @@
       "postId": 1
     }
   ],
-  "student": [{}]
+  "student": [
+    {
+      "id": "894b2a90-126a-48f6-a81d-793023749a1b",
+      "username": "tshubham",
+      "email": "tshubhamucem@gmail.com",
+      "password": "1234",
+      "confirmPassword": "12345",
+      "phone": "08881946755",
+      "city": ""
+    },
+    {
+      "id": "da1e8056-d465-4508-a556-e82ed2c58c83",
+      "username": "tshubham",
+      "email": "tshubhamucem@gmail.com",
+      "password": "adadd",
+      "confirmPassword": "",
+      "phone": "08881946755",
+      "city": "Arunachal Pradesh"
+    },
+    {
+      "username": "tShubham_8085",
+      "email": "tshubhamucem@gmail.com",
+      "password": "444444",
+      "confirmPassword": "444444",
+      "phone": "08881946755",
+      "city": "Chhattisgarh",
+      "id": "32086272-02c2-4681-b9d6-a1eb15ba78a4"
+    },
+    {
+      "id": "180904a9-e1b9-4ef4-bfd1-7f7b5fa55b3b",
+      "username": "tShubham_8085",
+      "email": "tshubhamucem@gmail.com",
+      "password": "888",
+      "confirmPassword": "44545454",
+      "phone": "08881946755",
+      "city": "Assam"
+    },
+    {
+      "username": "tShubham_8085",
+      "email": "tshubhamucem@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "phone": "08881946755",
+      "city": "Andhra Pradesh",
+      "id": "c572b273-1592-4816-80d0-f4ca6f2e3096"
+    },
+    {
+      "id": "3319cf76-754a-4dba-9a61-72d1533e7513",
+      "username": "tShubham_8085",
+      "email": "tshubhamucem@gmail.com",
+      "password": "123456789",
+      "confirmPassword": "123456789",
+      "phone": "08881946755",
+      "city": "Arunachal Pradesh"
+    }
+  ]
 }

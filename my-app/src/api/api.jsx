@@ -33,3 +33,25 @@ export const getCityData = async () => {
     console.error(error);
   }
 };
+
+export const postApiforRegister = async (registerStudentObj) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:4000/student",
+      registerStudentObj
+    );
+    // console.log(response.data);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getApiforRegister = async () => {
+  try {
+    const res = await axios.get("http://localhost:4000/student");
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

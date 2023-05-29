@@ -1,34 +1,99 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { v4 as uuidv4 } from "uuid";
+import { getApiforRegister } from "../../../api/api";
+import { useNavigate, useLoaderData } from "react-router-dom";
 const Login = () => {
   const [loginForm, setLoginForm] = useState({
     id: "",
     email: "",
     password: "",
   });
+  const [student, setStudent] = useState([]);
+  const [rememberMe, setRememberMe] = useState(false);
+  const [adminLogin, setAdminLogin] = useState(false);
+  let navigateTo = useNavigate();
+
+  useEffect(() => {
+    getStudentList();
+  }, []);
 
   const handleInputChange = (e) => {
     setLoginForm({ ...loginForm, id: uuidv4(), [e.target.id]: e.target.value });
   };
 
+  const getStudentList = async () => {
+    try {
+      let res = await getApiforRegister();
+      setStudent(res);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const handleLoginFormSubmit = (e) => {
     e.preventDefault();
-    // const formData = { ...loginForm };
-    console.log(loginForm);
+    // console.log(loginForm);
     setLoginForm({
       email: "",
       password: "",
     });
-    // You can perform further actions with the formData object,
-    // such as sending it to a server or processing it in some way.
   };
 
+  const hendleSignInClick = () => {
+    let isStudentExist = student.find(
+      (student) =>
+        student.name === loginForm.name &&
+        student.password === loginForm.password
+    );
+    if (isStudentExist) {
+      navigateTo("/quiz");
+      alert("Welcome to our portal");
+      return;
+    }
+    // Handle invalid login credentials
+    alert("Invalid login credentials");
+  };
+
+  const handleRememberMeToggle = () => {
+    setRememberMe(!rememberMe);
+  };
+
+  const handleClickAdminLogin = () => {
+    setAdminLogin(!adminLogin);
+  };
   return (
     <>
       <div className="d-flex justify-content-center align-items-center">
         <div className="form-container" style={{ marginTop: "100px" }}>
-          <h3 className="title">Register</h3>
+          <div className="login-header">
+            <div>
+              <h3 className="title">
+                {adminLogin === true ? "Admin Login" : "User Login"}
+              </h3>
+            </div>
+            <div>
+              {/* <div class="form-check form-switch">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                />
+                <label class="form-check-label" for="flexSwitchCheckDefault">
+                  Default switch checkbox input
+                </label>
+              </div> */}
+              <button
+                style={{ marginTop: "0px", width: "6rem" }}
+                className="btn btn-primary"
+                onClick={handleClickAdminLogin}
+              >
+                {adminLogin === true ? "admin" : "user"}
+              </button>
+            </div>
+          </div>
+
           <form className="form-horizontal" onSubmit={handleLoginFormSubmit}>
             <div className="form-group">
               <label htmlFor="email">Email ID</label>
@@ -53,9 +118,11 @@ const Login = () => {
               />
             </div>
             <span className="signin-link">
-              Already have an account? Click here to <a href="">Login</a>
+              Already have an account? Click here to <a href="/">Login</a>
             </span>
-            <button className="btn signup">Sign In</button>
+            <button className="btn signup" onClick={hendleSignInClick}>
+              Sign In
+            </button>
           </form>
         </div>
       </div>

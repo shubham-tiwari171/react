@@ -200,7 +200,7 @@ a:hover {
   vertical-align: top;
 }
 .form-container .signin-link a {
-  color: #00a9ef;
+  color: #3b71ca;
   font-weight: 600;
   transition: all 0.3s ease 0s;
 }
@@ -209,7 +209,7 @@ a:hover {
 }
 .form-container .form-horizontal .signup {
   color: #fff;
-  background: #00a9ef;
+  background: #3b71ca;
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
@@ -224,6 +224,15 @@ a:hover {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 3px rgba(0, 0, 0, 0.15), 5px 5px rgba(0, 0, 0, 0.1);
   outline: none;
+}
+input[type="checkbox"] {
+  height: 17px !important;
+  width: 17px !important;
+}
+.login-header {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
 }
 @media only screen and (max-width: 479px) {
   .form-container .form-horizontal .form-group {
