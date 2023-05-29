@@ -78,95 +78,102 @@ const Quiz = () => {
   };
   return (
     <>
-      {next === questions.length && (
-        <div
-          className={`d-flex justify-content-center align-items-center flex-column flex-column ${styles["score-section"]} g-4`}
-        >
-          {count > 12 && <span>Congratulations you passed the test</span>}
-          {count < 12 && <span> You have failed the test start again</span>}
-          You scored {count} out of {questions.length * 2}
-          <button className="btn btn-outline-light" onClick={handleResetClick}>
-            Start Quiz Again
-          </button>
-        </div>
-      )}
-      {start === "start" && (
-        <div className={`${styles["score-section"]}`}>
-          <button className="btn btn-outline-light" onClick={handleStartClick}>
-            Start Quiz
-          </button>
-        </div>
-      )}
-      {next < questions.length && start === "stop" && (
-        <>
-          <div className={`${styles["question-section"]}`}>
-            <div className={`${styles["question-count"]}`}>
-              <span>
-                Question{" "}
-                {next + 1 > questions.length ? questions.length : next + 1}/
-                {questions.length}
-              </span>
-            </div>
-            <div className={`${styles["question-text"]}`}>
-              {questions[next] && questions[next].questionText}
-            </div>
-            {/* <Timer timeLeft={timeLeft} setTimeLeft={setTimeLeft} /> */}
-            <div
-              className={`d-flex justify-content-center align-items-center ${styles["timer"]}`}
-            >
-              <span>{timeLeft}</span>
-            </div>
-          </div>
+      <div
+        className={`${styles["quiz-wrapper"]} d-flex justify-content-center align-items-center`}
+      >
+        {next === questions.length && (
           <div
-            className="d-flex justify-content-center align-items-center flex-column"
-            style={{ width: "100%" }}
+            className={`d-flex justify-content-center align-items-center flex-column flex-column ${styles["score-section"]} g-4`}
           >
-            <div className={` d-flex ${styles["answer-section"]}`}>
-              {questions[next] &&
-                questions[next].answerOptions.map((ans, index) => (
-                  // <button key={index} id={index} onClick={handleOptionClick}>
-                  //   {ans.answerText}
-                  // </button>
-                  <div
-                    key={index}
-                    className={`${styles["radio-button"]}`}
-                    onClick={() => handleOptionSelect(index)}
-                  >
-                    <div style={{ width: "20px", marginLeft: "1rem" }}>
-                      <input
-                        type="radio"
-                        id={index}
-                        checked={selectedOption === index}
-                        onChange={() => handleOptionSelect(index)}
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor={index}
-                        onClick={() => handleOptionSelect(index)}
-                      >
-                        {ans.answerText}
-                      </label>
-                    </div>
-                  </div>
-                ))}
-            </div>
-
+            {count > 12 && <span>Congratulations you passed the test</span>}
+            {count < 12 && <span> You have failed the test start again</span>}
+            You scored {count} out of {questions.length * 2}
             <button
               className="btn btn-outline-light"
-              style={{ marginTop: "15px" }}
-              onClick={handleClick}
+              onClick={handleResetClick}
             >
-              {next + 1 === questions.length ? "Submit" : "Next"}
+              Start Quiz Again
             </button>
           </div>
-        </>
-      )}
+        )}
+        {start === "start" && (
+          <div className={`${styles["score-section"]}`}>
+            <button
+              className="btn btn-outline-light"
+              onClick={handleStartClick}
+            >
+              Start Quiz
+            </button>
+          </div>
+        )}
+        {next < questions.length && start === "stop" && (
+          <>
+            <div className={`${styles["question-section"]}`}>
+              <div className={`${styles["question-count"]}`}>
+                <span>
+                  Question{" "}
+                  {next + 1 > questions.length ? questions.length : next + 1}/
+                  {questions.length}
+                </span>
+              </div>
+              <div className={`${styles["question-text"]}`}>
+                {questions[next] && questions[next].questionText}
+              </div>
+              {/* <Timer timeLeft={timeLeft} setTimeLeft={setTimeLeft} /> */}
+              <div
+                className={`d-flex justify-content-center align-items-center ${styles["timer"]}`}
+              >
+                <span>{timeLeft}</span>
+              </div>
+            </div>
+            <div
+              className="d-flex justify-content-center align-items-center flex-column"
+              style={{ width: "100%" }}
+            >
+              <div className={` d-flex ${styles["answer-section"]}`}>
+                {questions[next] &&
+                  questions[next].answerOptions.map((ans, index) => (
+                    // <button key={index} id={index} onClick={handleOptionClick}>
+                    //   {ans.answerText}
+                    // </button>
+                    <div
+                      key={index}
+                      className={`${styles["radio-button"]}`}
+                      onClick={() => handleOptionSelect(index)}
+                    >
+                      <div style={{ width: "20px", marginLeft: "1rem" }}>
+                        <input
+                          type="radio"
+                          id={index}
+                          checked={selectedOption === index}
+                          onChange={() => handleOptionSelect(index)}
+                        />
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor={index}
+                          onClick={() => handleOptionSelect(index)}
+                        >
+                          {ans.answerText}
+                        </label>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+
+              <button
+                className="btn btn-outline-light"
+                style={{ marginTop: "15px" }}
+                onClick={handleClick}
+              >
+                {next + 1 === questions.length ? "Submit" : "Next"}
+              </button>
+            </div>
+          </>
+        )}
+      </div>
     </>
-    // <div style={{ height: "100vh", border: "50px solid black", color: "red" }}>
-    //   Quiz
-    // </div>
   );
 };
 

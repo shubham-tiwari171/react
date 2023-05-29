@@ -8,6 +8,7 @@
 .question-section {
   width: 100%;
   position: relative;
+  margin-right: 1rem;
 }
 
 .question-count {
@@ -38,6 +39,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 1rem;
 }
 
 .radio-button {
@@ -96,4 +98,12 @@ button {
   border-radius: 10px;
   height: 2.5rem;
   width: 5rem;
+}
+.quiz-wrapper {
+  min-height: 100vh; /* Set the minimum height to fill the entire viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20%;
+  background-color: #234668;
 }
