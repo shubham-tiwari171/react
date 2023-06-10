@@ -1,0 +1,11 @@
+.customBox {
+  background-color: blue;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+.customBox:hover {
+  background-color: brown;
+  cursor: pointer;
+  transition: all 300ms ease-in;
+}
