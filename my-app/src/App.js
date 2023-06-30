@@ -45,6 +45,12 @@ function App() {
     }
   };
 
+  const handleClearAll = () => {
+    setNum1('');
+    setNum2('');
+    setResult('');
+  };
+
   return (
     <div className="calculator">
       <h1>Calculator</h1>
@@ -57,6 +63,7 @@ function App() {
         <button onClick={() => handleOperation('subtraction')}>-</button>
         <button onClick={() => handleOperation('multiplication')}>*</button>
         <button onClick={() => handleOperation('division')}>/</button>
+        <button onClick={handleClearAll}>Delete</button>
       </div>
       <h2>Result: {result}</h2>
     </div>
