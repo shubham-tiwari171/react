@@ -1,74 +1,64 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
 function App() {
-  const [num1, setNum1] = useState('');
-  const [num2, setNum2] = useState('');
-  const [result, setResult] = useState('');
+  const [student, setStudent] = useState({ name: "", email: "", phone: "", address: "" });
+  const [studentData, setStudentData] = useState([]);
 
-  const handleNum1Change = (event) => {
-    setNum1(event.target.value);
+  const handleChange = (event) => {
+    event.preventDefault();
+    setStudent({ ...student, [event.target.id]: event.target.value });
   };
 
-  const handleNum2Change = (event) => {
-    setNum2(event.target.value);
+  useEffect(() => { setStudentData(JSON.parse(localStorage.getItem("studentData"))) }, [])
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setStudentData([...studentData, student]);
+    setStudent({ name: "", email: "", phone: "", address: "" });
+    localStorage.setItem("studentData", JSON.stringify([...studentData, student]));
   };
 
-  const handleOperation = (operation) => {
-    const number1 = parseFloat(num1);
-    const number2 = parseFloat(num2);
-
-    if (isNaN(number1) || isNaN(number2)) {
-      setResult('Invalid input');
-    } else {
-      switch (operation) {
-        case 'addition':
-          setResult(number1 + number2);
-          break;
-        case 'subtraction':
-          setResult(number1 - number2);
-          break;
-        case 'multiplication':
-          setResult(number1 * number2);
-          break;
-        case 'division':
-          if (number2 === 0) {
-            setResult('Cannot divide by zero');
-          } else {
-            setResult(number1 / number2);
-          }
-          break;
-        default:
-          setResult('');
-          break;
-      }
-    }
-  };
-
-  const handleClearAll = () => {
-    setNum1('');
-    setNum2('');
-    setResult('');
-  };
+  useEffect(() => {
+    console.log(studentData);
+  }, [studentData]);
 
   return (
-    <div className="calculator">
-      <h1>Calculator</h1>
+    <div className="student-container">
+      <h1>Student Data</h1>
       <div className="input-container">
-        <input type="text" value={num1} onChange={handleNum1Change} />
-        <input type="text" value={num2} onChange={handleNum2Change} />
+        <form onSubmit={handleSubmit}>
+          <input id="name" type="text" value={student.name} onChange={handleChange} placeholder="Name" />
+          <input id="email" type="text" value={student.email} onChange={handleChange} placeholder="Email" />
+          <input id="phone" type="text" value={student.phone} onChange={handleChange} placeholder="Phone" />
+          <input id="address" type="text" value={student.address} onChange={handleChange} placeholder="Address" />
+          <button type='submit' className='btn btn-outline-danger btn-lg'>Submit</button>
+        </form>
       </div>
-      <div className="button-container">
-        <button onClick={() => handleOperation('addition')}>+</button>
-        <button onClick={() => handleOperation('subtraction')}>-</button>
-        <button onClick={() => handleOperation('multiplication')}>*</button>
-        <button onClick={() => handleOperation('division')}>/</button>
-        <button onClick={handleClearAll}>Delete</button>
-      </div>
-      <h2>Result: {result}</h2>
+      <h2>Result</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          {studentData.map((data, index) => (
+            <tr key={index}>
+              <td>{data.name}</td>
+              <td>{data.email}</td>
+              <td>{data.phone}</td>
+              <td>{data.address}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
 
 export default App;
-
