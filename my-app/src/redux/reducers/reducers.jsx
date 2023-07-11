@@ -1,56 +1,94 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
-  user: {},
-};
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const crudSlice = createSlice({
   name: "crud",
-  initialState,
+  initialState: {
+    data: [],
+    isPostsVisible: false,
+    selectedUser: [],
+  },
   reducers: {
-    // setData: (state, action) => {
-    //   state.data = action.payload;
-    // },
-    // setLoading: (state, action) => {
-    //   state.loading = action.payload;
-    // },
-    // setError: (state, action) => {
-    //   state.error = action.payload;
-    // },
-    // createData: (state, action) => {
-    //   state.data.push(action.payload);
-    // },
-    // updateData: (state, action) => {
-    //   const updatedItem = action.payload;
-    //   const index = state.data.findIndex((item) => item.id === updatedItem.id);
-    //   if (index !== -1) {
-    //     state.data[index] = updatedItem;
-    //   }
-    // },
-    // deleteData: (state, action) => {
-    //   const itemId = action.payload;
-    //   state.data = state.data.filter((item) => item.id !== itemId);
-    // },
-    createData: (state, action) => {
-      let data = JSON.parse(localStorage.getItem("studentData"));
-      localStorage.setItem(
-        "studentData",
-        JSON.stringify([action.payload, ...data])
-      );
+    showPosts: (state, action) => {
+      const userId = action.payload;
+      const userIndex = state.data.findIndex((user) => user.id === userId);
+      if (userIndex !== -1) {
+        state.selectedUser = [...state.data[userIndex].posts];
+        state.isPostsVisible = true;
+      }
     },
 
-    // updateData: (state, action) => {
-    //   const updatedItem = action.payload;
-    //   let data = JSON.parse(localStorage.getItem("studentData"));
-    //   const index = data.findIndex((item) => item.id === updatedItem.id);
-    //   if (index !== -1) {
-    //     data[index] = updatedItem;
-    //     localStorage.setItem("studentData", JSON.stringify(data));
-    //   }
-    // },
+    createUser: (state, action) => {
+      const newUser = {
+        ...action.payload,
+        posts: [],
+      };
+      state.data = [...state.data, newUser];
+    },
+    upadateUser: (state, action) => {
+      const index = state.data.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.data[index] = action.payload;
+        console.log(current(state.data));
+      }
+    },
+    deleteUser: (state, action) => {
+      const userId = action.payload;
+      state.data = state.data.filter((user) => user.id !== userId);
+    },
+    createPost: (state, action) => {
+      const { userId, newPost } = action.payload;
+      const userIndex = state.data.findIndex((user) => user.id === userId);
+      if (userIndex !== -1) {
+        state.data[userIndex].posts.push({
+          ...newPost,
+          name: state.data[userIndex].name,
+          timeStamp: new Date().getTime(),
+        });
+      }
+      state.selectedUser = state.data[userIndex].posts.sort(
+        (a, b) => b.timeStamp - a.timeStamp
+      );
+    },
+    editPost: (state, action) => {
+      const { userId, post } = action.payload;
+      const userIndex = state.data.findIndex((user) => user.id === userId);
+      if (userIndex !== -1) {
+        const postIndex = state.data[userIndex].posts.findIndex(
+          (p) => p.id === post.id
+        );
+        if (postIndex !== -1) {
+          state.data[userIndex].posts[postIndex] = {
+            ...state.data[userIndex].posts[postIndex],
+            timeStam: new Date().toLocaleString(),
+            post: post.post,
+          };
+          state.selectedUser = [...state.data[userIndex].posts];
+        }
+      }
+    },
+    deletePost: (state, action) => {
+      const { userId, postId } = action.payload;
+      const userIndex = state.data.findIndex((user) => user.id === userId);
+      if (userIndex !== -1) {
+        state.data[userIndex].posts = state.data[userIndex].posts.filter(
+          (post) => post.id !== postId
+        );
+        state.selectedUser = state.data[userIndex].posts;
+      }
+    },
   },
 });
 
-export const { createData, updateData, deleteData } = crudSlice.actions;
+export const {
+  createUser,
+  upadateUser,
+  deleteUser,
+  createPost,
+  showPosts,
+  deletePost,
+  editPost,
+} = crudSlice.actions;
 
 export default crudSlice.reducer;
